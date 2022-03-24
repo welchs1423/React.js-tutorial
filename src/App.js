@@ -8,7 +8,12 @@ class App extends Component {
   constructor(props){ // 어떤 component가 실행 될때 render보다 먼저 실행 되면서 component를 초기화 시키기 위한 코드
     super(props);
     this.state = {
-      subject:{title:'WEB', sub:'World Wide Web!'}
+      subject:{title:'WEB', sub:'World Wide Web!'},
+      contents:[
+        {id:1, title:'HTML', desc:'HTML is for information'},
+        {id:2, title:'CSS', desc:'CSS is for design'},
+        {id:3, title:'JavaScript', desc:'JavaScript is for interactive'},
+      ]
     }
   }
   render() {
@@ -19,7 +24,7 @@ class App extends Component {
          title={this.state.subject.title}
          sub={this.state.subject.sub}>
         </Subject>
-        <TOC></TOC>
+        <TOC data={this.state.contents}></TOC>
         <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
       </div>
     );
