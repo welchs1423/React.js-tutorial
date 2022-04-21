@@ -32,6 +32,7 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
+    console.log('render', this);  // render() 안에서의 this는 render함수가 속해있는 component 자체를 가리킨다.
     return (  // "", \ 같은 것들을 안써도 되도록 페이스북에서 만든 언어 jsx
               // jsx를 코딩하면 create react app이 자바스크립트로 코딩 해준다.
       <div className="App">
@@ -41,6 +42,9 @@ class App extends Component {
         </Subject> */}
         <header>
           <h1><a href="/" onClick={function(e){
+            console.log('event in', this);
+            e.preventDefault();
+            return;
             console.log(e);
             e.preventDefault();
             // this.state.mode = 'welcome'; 리액트에서는 밑의 코드를 사용해야 한다.
