@@ -43,12 +43,15 @@ class App extends Component {
           <h1><a href="/" onClick={function(e){
             console.log(e);
             e.preventDefault();
-            // debugger; // 크롬 개발자 도구를 사용할 때
-                      // 브라우저가 debugger라는 코드를 만나면 브라우저가 디버거 라고 되있는 부분에서 실행을 멈추고
-                      // sources라고 하는 페이지에서 여러가지 정보를 보기 쉽게 해줌.
+            // this.state.mode = 'welcome'; 리액트에서는 밑의 코드를 사용해야 한다.
+            this.setState({
+              mode:'welcome'
+            });
             /* 자바스크립트는 onclick="" 를 사용하고.
             리액트에서는 onClick={}를 사용한다고 함.*/
-          }}>{this.state.subject.title}</a></h1>
+          }.bind(this)
+            // 위의 에러를 해결해주는 '.bind(this)'
+          }>{this.state.subject.title}</a></h1>
           {this.state.subject.sub}
         </header>
         <TOC data={this.state.contents}></TOC>
